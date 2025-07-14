@@ -19,4 +19,4 @@ An unbeatable Tic-Tac-Toe game developed in Python using the **Minimax Algorithm
 
 ## 🚀 How to Run
 ```bash
-python tic_tac_toe_ai.py
+python tic_tac_toe.py
