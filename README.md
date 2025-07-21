@@ -1,96 +1,80 @@
-# CODSOFT TASKS
+# 🤖 CodSoft AI Internship Projects – Rudra Pratap Singh
 
-## 🎮 Tic-Tac-Toe AI (CodSoft AI Internship Task 2)
-
-This project is part of my Artificial Intelligence internship at **CodSoft**.
-
----
-
-## 📌 Description
-An unbeatable Tic-Tac-Toe game developed in Python using the **Minimax Algorithm**. The AI plays optimally against a human user and never loses.
+This repository contains the completed tasks for the **Artificial Intelligence Internship** at **CodSoft**.  
+Each task demonstrates the practical application of AI/ML concepts in real-world scenarios.
 
 ---
 
-## 🧠 Concepts Used
+🎮 Tic-Tac-Toe AI (Task 2)
+
+### 📌 Description
+An unbeatable Tic-Tac-Toe game implemented in Python using the **Minimax Algorithm**. The AI plays optimally against a human player and ensures it never loses.
+
+### 🧠 Concepts Used
 - Game Theory
 - Minimax Algorithm
 - Recursive Decision Making
 - Python Programming
 
----
-
-## 🛠 Tech Stack
+### 🛠 Tech Stack
 - Python
-- Algorithms
 - (Optional) Tkinter for GUI
 
----
-
-## 🚀 How to Run
-1. Make sure you have Python installed.
-2. Open terminal or command prompt.
-3. Navigate to the project folder.
-4. Run the script using:
-```bash
-python tic_tac_toe.py
-
-
+### 🚀 How to Run
+1. Make sure Python is installed.
+2. Open terminal or command prompt and navigate to the project directory.
+3. Run the script using:
+   ```bash
+   python tic_tac_toe.py
 🎯 Objective
-To implement classic game AI logic using fundamental algorithms, helping reinforce concepts like decision trees and recursive backtracking in a fun and interactive way.
+To demonstrate classic AI gameplay logic using decision trees and search-based algorithms in a turn-based environment.
 
-Made with ❤️ by Rudra Pratap Singh
+🎬 Task 4: Movie Recommendation System
+📌 Description
+A content-based movie recommendation system that suggests similar movies based on a user-input movie title. It uses TF-IDF Vectorization to convert movie titles into numerical vectors and cosine similarity to identify related movies.
 
+🧠 Concepts Used
+Content-Based Filtering
 
+TF-IDF (Term Frequency-Inverse Document Frequency)
 
+Cosine Similarity
 
-# 🤖 CodSoft AI Internship Projects – Rudra Pratap Singh
+Text Preprocessing & NLP Fundamentals
 
-This repository contains the completed tasks for the **Artificial Intelligence Internship** at **CodSoft**.  
-Each task demonstrates the application of AI/ML concepts in real-world projects.
+pandas & scikit-learn
 
-Task 4: Movie Recommendation System
-markdown
+🛠 Tech Stack
+Python
+
+pandas
+
+scikit-learn
+
+🚀 How to Run
+Install the required libraries:
+
+bash
 Copy
 Edit
-# 🎬 Movie Recommendation System (CodSoft AI Internship Task 4)
-
-This project is part of my Artificial Intelligence internship at **CodSoft**.
-
-## 📌 Description
-A **content-based recommendation system** that suggests similar movies based on the title provided by the user. It uses **TF-IDF Vectorization** to process movie titles and **cosine similarity** to find and rank similar results.
-
-## 🧠 Concepts Used
-- Content-Based Filtering
-- TF-IDF (Term Frequency-Inverse Document Frequency)
-- Cosine Similarity
-- Text Preprocessing
-- NLP Basics
-
-## 🛠 Tech Stack
-- Python
-- pandas
-- scikit-learn
-
-## 🚀 How to Run
-1. Install the required libraries:
-   ```bash
-   pip install pandas scikit-learn
-Open the notebook in Jupyter:
+pip install pandas scikit-learn
+Open the notebook:
 
 bash
 Copy
 Edit
 jupyter notebook Movie_Recommend.ipynb
-Run all cells and search for similar movies:
+or open it in Google Colab.
+
+Run all cells. Use:
 
 python
 Copy
 Edit
 search("Avatar")
-📂 Dataset
-The dataset includes cleaned movie titles and metadata used to compute similarity scores.
+to get top recommended results.
 
 🎯 Objective
-To demonstrate how simple machine learning and NLP techniques can be used to build a real-world movie recommendation engine.
+To showcase how machine learning and natural language processing can be used to build real-world recommendation engines like those used by Netflix or Amazon Prime.
 
 Made with ❤️ by Rudra Pratap Singh
