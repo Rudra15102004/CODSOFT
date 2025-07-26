@@ -1,15 +1,11 @@
-import tkinter as tk
-from tkinter import scrolledtext, messagebox
 import re
 import random
 from datetime import datetime
 
-class ChatBotGUI:
+class SimpleChatBot:
     def __init__(self):
         self.bot_name = "Alex"
         self.user_name = None
-        
-        # Response variations for natural conversation
         self.greeting_responses = [
             "Hello there! Nice to meet you!",
             "Hi! How's your day going?",
@@ -55,131 +51,6 @@ class ChatBotGUI:
             "I'm still learning! Can you try asking something else?",
             "Sorry, I don't have a good response for that. What else would you like to talk about?"
         ]
-        
-        # Setup the GUI
-        self.setup_gui()
-        
-    def setup_gui(self):
-        self.root = tk.Tk()
-        self.root.title(f"Chat with {self.bot_name}")
-        self.root.geometry("600x500")
-        self.root.configure(bg='#f0f0f0')
-        
-        # Create main frame
-        main_frame = tk.Frame(self.root, bg='#f0f0f0')
-        main_frame.pack(fill=tk.BOTH, expand=True, padx=10, pady=10)
-        
-        # Chat display area
-        self.chat_display = scrolledtext.ScrolledText(
-            main_frame, 
-            wrap=tk.WORD, 
-            width=70, 
-            height=20,
-            bg='white',
-            fg='black',
-            font=('Arial', 10)
-        )
-        self.chat_display.pack(fill=tk.BOTH, expand=True, pady=(0, 10))
-        
-        # Input frame
-        input_frame = tk.Frame(main_frame, bg='#f0f0f0')
-        input_frame.pack(fill=tk.X, pady=(0, 5))
-        
-        # Message input field
-        self.message_entry = tk.Entry(
-            input_frame, 
-            font=('Arial', 11),
-            relief=tk.RAISED,
-            bd=1
-        )
-        self.message_entry.pack(side=tk.LEFT, fill=tk.X, expand=True, padx=(0, 5))
-        self.message_entry.bind('<Return>', self.send_message_event)
-        
-        # Send button
-        self.send_button = tk.Button(
-            input_frame, 
-            text="Send", 
-            command=self.send_message,
-            bg='#4CAF50',
-            fg='white',
-            font=('Arial', 10, 'bold'),
-            relief=tk.RAISED,
-            bd=2,
-            width=8
-        )
-        self.send_button.pack(side=tk.RIGHT)
-        
-        # Control buttons frame
-        control_frame = tk.Frame(main_frame, bg='#f0f0f0')
-        control_frame.pack(fill=tk.X)
-        
-        # Clear chat button
-        self.clear_button = tk.Button(
-            control_frame,
-            text="Clear Chat",
-            command=self.clear_chat,
-            bg='#ff6b6b',
-            fg='white',
-            font=('Arial', 9),
-            relief=tk.RAISED,
-            bd=1
-        )
-        self.clear_button.pack(side=tk.LEFT, padx=(0, 5))
-        
-        # Exit button
-        self.exit_button = tk.Button(
-            control_frame,
-            text="Exit",
-            command=self.close_application,
-            bg='#666666',
-            fg='white',
-            font=('Arial', 9),
-            relief=tk.RAISED,
-            bd=1
-        )
-        self.exit_button.pack(side=tk.RIGHT)
-        
-        # Initial welcome message
-        self.display_message(f"{self.bot_name}", f"Hello! I'm {self.bot_name}, your chatbot companion. How can I help you today?")
-        
-        # Focus on input field
-        self.message_entry.focus()
-
-    def display_message(self, sender, message):
-        self.chat_display.config(state=tk.NORMAL)
-        self.chat_display.insert(tk.END, f"{sender}: {message}\n\n")
-        self.chat_display.config(state=tk.DISABLED)
-        self.chat_display.see(tk.END)
-
-    def send_message_event(self, event):
-        self.send_message()
-
-    def send_message(self):
-        user_message = self.message_entry.get().strip()
-        
-        if not user_message:
-            return
-        
-        # Display user message
-        self.display_message("You", user_message)
-        
-        # Clear input field
-        self.message_entry.delete(0, tk.END)
-        
-        # Process and display bot response
-        bot_response = self.process_user_input(user_message)
-        self.display_message(f"{self.bot_name}", bot_response)
-
-    def clear_chat(self):
-        self.chat_display.config(state=tk.NORMAL)
-        self.chat_display.delete(1.0, tk.END)
-        self.chat_display.config(state=tk.DISABLED)
-        self.display_message(f"{self.bot_name}", "Chat cleared! How can I help you?")
-
-    def close_application(self):
-        result = messagebox.askyesno("Exit", "Are you sure you want to exit?")
-        if result:
-            self.root.destroy()
 
     def clean_input(self, user_input):
         cleaned = re.sub(r'\s+', ' ', user_input.strip().lower())
@@ -314,11 +185,38 @@ class ChatBotGUI:
         elif self.check_time_question(cleaned_input):
             return self.get_current_time()
         
+        # If none of the patterns match, return default response
         return random.choice(self.default_responses)
 
-    def run(self):
-        self.root.mainloop()
+    def start_conversation(self):
+        print("=" * 50)
+        print(f"  Welcome! I'm {self.bot_name}, your chatbot companion")
+        print("  Type 'quit' or 'exit' to end our conversation")
+        print("=" * 50)
+        print()
+        
+        while True:
+            try:
+                user_message = input("You: ").strip()
+                
+                if not user_message:
+                    print(f"{self.bot_name}: Please say something!")
+                    continue
+                
+                if user_message.lower() in ['quit', 'exit', 'bye']:
+                    print(f"{self.bot_name}: {random.choice(self.farewell_responses)}")
+                    break
+                
+                bot_response = self.process_user_input(user_message)
+                print(f"{self.bot_name}: {bot_response}")
+                print()
+                
+            except KeyboardInterrupt:
+                print(f"\n{self.bot_name}: Goodbye! Thanks for chatting!")
+                break
+            except Exception as e:
+                print(f"{self.bot_name}: Sorry, something went wrong. Let's try again!")
 
 if __name__ == "__main__":
-    chatbot_gui = ChatBotGUI()
-    chatbot_gui.run()
+    chatbot = SimpleChatBot()
+    chatbot.start_conversation()
