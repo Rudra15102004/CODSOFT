@@ -5,7 +5,7 @@ Each task demonstrates the practical application of AI/ML concepts in real-world
 
 ---
 
-🎮 Tic-Tac-Toe AI (Task 2)
+# 🎮 Tic-Tac-Toe AI (Task 2)
 
 ### 📌 Description
 An unbeatable Tic-Tac-Toe game implemented in Python using the **Minimax Algorithm**. The AI plays optimally against a human player and ensures it never loses.
@@ -29,7 +29,7 @@ An unbeatable Tic-Tac-Toe game implemented in Python using the **Minimax Algorit
 🎯 Objective
 To demonstrate classic AI gameplay logic using decision trees and search-based algorithms in a turn-based environment.
 
-##🎬 Task 4: Movie Recommendation System
+## 🎬 Task 4: Movie Recommendation System
 
 📌 Description
 A content-based movie recommendation system that suggests similar movies based on a user-input movie title. It uses TF-IDF Vectorization to convert movie titles into numerical vectors and cosine similarity to identify related movies.
