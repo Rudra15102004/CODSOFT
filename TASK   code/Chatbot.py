@@ -155,14 +155,10 @@ class SimpleChatBot:
 
     def process_user_input(self, user_input):
         cleaned_input = self.clean_input(user_input)
-        
-        # Check if user is introducing themselves
         potential_name = self.extract_name_from_input(cleaned_input)
         if potential_name and not self.user_name:
             self.user_name = potential_name
             return f"Nice to meet you, {self.user_name}! How can I help you today?"
-        
-        # Handle different types of input
         if self.check_farewell(cleaned_input):
             if self.user_name:
                 return f"Goodbye, {self.user_name}! " + random.choice(self.farewell_responses)
@@ -184,8 +180,6 @@ class SimpleChatBot:
         
         elif self.check_time_question(cleaned_input):
             return self.get_current_time()
-        
-        # If none of the patterns match, return default response
         return random.choice(self.default_responses)
 
     def start_conversation(self):
